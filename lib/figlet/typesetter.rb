@@ -11,19 +11,17 @@ module Figlet
     def [](str)
       result = []
 
-      str.length.times do |i|
-        char = str[i]
-
-        unless @font.has_char?(char)
-          if @font.has_char?(0)
-            char = 0
-          else
-            next
-          end
+      str.bytes.each_with_index do |byte, index|
+        if @font.has_char?(byte)
+          char = @font[byte]
+        elsif @font.has_char?(0)
+          char = @font[0]
+        else
+          next
         end
 
         @font.height.times do |j|
-          line = @font[char][j]
+          line = char[j]
 
           if result[j].nil?
             result[j] = line
@@ -32,7 +30,7 @@ module Figlet
           end
         end
 
-        if @font.old_layout > -1 && i > 0
+        if @font.old_layout > -1 && index > 0
           diff = -1
 
           @font.height.times do |j|
