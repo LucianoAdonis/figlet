@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'figlet'
-  s.version = '1.0.0'
+  s.version = '1.1.0'
   s.platform = Gem::Platform::RUBY
   s.authors = ['Tim Fletcher']
   s.email = ['mail@tfletcher.com']
