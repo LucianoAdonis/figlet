@@ -49,7 +49,7 @@ module Figlet
         end
       end
 
-      return result.join("\n").gsub(/\0/, '').gsub(@font.hard_blank, ' ')
+      result.join("\n").gsub(/\0/, '').gsub(@font.hard_blank, ' ')
     end
 
     private
