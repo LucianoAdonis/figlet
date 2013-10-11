@@ -1,11 +1,9 @@
 module Figlet
   class Typesetter
-    def initialize(font, options = nil)
+    def initialize(font, options = {})
       @font = font
 
-      @options = options || {}
-
-      @smush = @options.has_key?(:smush) ? @options[:smush] : true
+      @smush = options.fetch(:smush) { true }
     end
 
     def [](str)
