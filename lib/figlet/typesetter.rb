@@ -19,13 +19,7 @@ module Figlet
         end
 
         @font.height.times do |j|
-          line = char[j]
-
-          if result[j].nil?
-            result[j] = line
-          else
-            result[j] = @font.right_to_left?? (line + result[j]) : (result[j] + line)
-          end
+          result[j] = @font.right_to_left? ? "#{char[j]}#{result[j]}" : "#{result[j]}#{char[j]}"
         end
 
         if @font.old_layout > -1 && index > 0
