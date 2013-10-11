@@ -5,6 +5,12 @@ figlet
 Ruby [FIGlet](http://www.figlet.org/) library.
 
 
+Installation
+------------
+
+    $ gem install figlet
+
+
 Example usage
 -------------
 
